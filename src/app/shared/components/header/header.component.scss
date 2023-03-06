@@ -1,0 +1,54 @@
+@import '../../../../assets/scss/parcials/colors';
+@import '../../../../assets/scss/parcials/forms';
+@import '../../../../assets/scss/utils';
+
+header {
+  width: 100%;
+  background-color: $white;
+  display: grid;
+  grid-template-columns: auto;
+  padding: 1rem 3rem;
+  grid-template-areas: "logo navigation";
+  .logo {
+    grid-area: logo;
+  }
+  .navigation {
+    grid-area: navigation;
+    place-self: end;
+  }
+  ul {
+    @extend .reset-ul;
+    position: relative;
+    display: inline-block;
+    & > li {
+      display: inline-block;
+      position: relative;
+      a {
+        &:hover {
+          text-decoration: none;
+          color: $blue;
+        }
+      }
+      &.submenu {
+        @include submenu;
+      }
+      &:not(:last-child) {
+        padding-right: 2rem;
+      }
+      &:hover ul {
+        display: block;
+      }
+      ul {
+        display: none;
+        position: absolute;
+        background-color: $white;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+        padding: 1rem;
+        border-radius: 0 0 5px 5px;
+        li:not(:last-child) {
+          margin-bottom: .5rem;
+        }
+      }
+    }
+  }
+}

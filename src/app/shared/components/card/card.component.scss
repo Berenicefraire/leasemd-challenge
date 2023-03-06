@@ -1,0 +1,12 @@
+@import '../../../../assets/scss/parcials/colors';
+
+:host {
+  display: block;
+  width: 100%;
+}
+.card {
+  background-color: $white;
+  border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+  padding:  2rem;
+}

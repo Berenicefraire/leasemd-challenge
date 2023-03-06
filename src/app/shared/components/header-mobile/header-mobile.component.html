@@ -1,0 +1,25 @@
+<header>
+  <div class="logo">
+    <img src="../assets/images/logo_test.svg">
+  </div>
+  <div class="menu" (click)="showMenu()">
+    <fa-icon [icon]="faBars"></fa-icon>
+  </div>
+  <div class="navigation" [ngClass]="{'hide': !displayMenu}">
+    <nav>
+      <ul>
+        <li>
+          <a href="#" class="submenu" (click)="showSubMenu($event)">Productos de arrendamiento</a>
+          <ul [ngClass]="{'show': displaySubMenu}">
+            <li><a href="#">Arrendamiento de auto</a></li>
+            <li><a href="#">Arrendamiento de equipo médico</a></li>
+            <li><a href="#">Línea de arrendamiento</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Nosotros</a></li>
+        <li class="text-centered"><button class="btn blue to-uppercase">Contáctanos</button></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<div class="maite" (click)="showMenu()" [ngClass]="{'displayLayer': displayMenu}"></div>

@@ -1,0 +1,54 @@
+<div class="main-home gradient">
+  <div class="quotes-title">
+    <h1>Conduce el auto de tus sueños.</h1>
+    <p>Tenemos para ti un plan de arrendamiento de auto seminuevo a precio preferencial y con el máximo beneficio fiscal que la ley permite.</p>
+  </div>
+  <div class="cars" *ngIf="breakpoint == 'xs' || breakpoint == 'small'">
+    <img src="../../../assets/images/cars.png">
+  </div>
+  <div class="quotes">
+    <app-card setWidth="100%">
+      <ng-container *ngIf="!submitted; else submitdedMsg">
+        <h2 class="text-centered">Solicita una cotización.</h2>
+        <form [formGroup]="quoteForm" (ngSubmit)="sendForm()">
+          <ng-container *ngIf="distList">
+            <div class="input-container" [ngClass]="{'error': isValid('idDistribuidor')}">
+              <label for="">Distribuidor</label>
+              <select formControlName="idDistribuidor">
+                <ng-container *ngFor="let item of distList">
+                  <option [value]="item.id">{{item.name}}</option>
+                </ng-container>
+              </select>
+            </div>
+          </ng-container>
+          <div class="input-container" [ngClass]="{'error': isValid('paginaAuto')}">
+            <label for="">Página del auto</label>
+            <input formControlName="paginaAuto" type="text" id="name" autocomplete="false">
+          </div>
+          <div class="input-container" [ngClass]="{'error': isValid('nombreCompleto')}">
+            <label for="name">Tu nombre completo</label>
+            <input formControlName="nombreCompleto" type="text" id="name" autocomplete="false">
+          </div>
+          <div class="input-container" [ngClass]="{'error': isValid('email')}">
+            <label for="email">Tu correo electrónico
+            </label>
+            <input formControlName="email" type="email" id="email" autocomplete="false">
+          </div>
+          <div class="message">
+            <fa-icon [icon]="faExclamationCircle"></fa-icon>
+            Uno de nuestros ejecutivos prepará tu cotización y te la hará llegar a tu correo electrónico.
+          </div>
+          <div class="text-centered">
+            <button
+            [ngClass]="{'disabled': this.quoteForm.invalid}"
+            [disabled]="this.quoteForm.invalid"
+            type="submit" class="btn blue to-uppercase">Solicitar cotización</button>
+          </div>
+        </form>
+      </ng-container>
+      <ng-template #submitdedMsg>
+        Enviado...
+      </ng-template>
+    </app-card>
+  </div>
+</div>

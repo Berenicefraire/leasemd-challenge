@@ -1,0 +1,51 @@
+@use '../../../assets/scss/mixins/breakpoints.mixin.scss' as bk;
+@import '../../../assets/scss/parcials/colors';
+@import '../../../assets/scss/parcials/forms';
+
+.main-home {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-areas: "quotes-title quotes-title quotes-title cars quotes quotes";
+  padding: 2rem 5rem;
+  column-gap: 1rem;
+  height: calc(100vh - 100px);
+  @include bk.respond-between(xs, lg) {
+    grid-template-columns: 1fr;
+    grid-template-areas: "quotes-title" "cars" "quotes";
+    padding: 6rem 3rem 3rem 3rem;
+    column-gap: 0;
+    height: 100%;
+  }
+}
+.quotes-title {
+  grid-area: quotes-title;
+  h1 {
+    font-size: 3rem;
+  }
+}
+.gradient {
+background: url('../../../assets/images/cars.png') no-repeat center 100%, linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(172,104,255,1) 20%, rgba(80,88,252,1) 30%, rgba(65,141,255,1) 40%, rgba(255,255,255,1) 60%);
+@include bk.respond-between(xs, lg) {
+  background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(172,104,255,1) 20%, rgba(80,88,252,1) 30%, rgba(65,141,255,1) 40%, rgba(255,255,255,1) 60%);
+}
+}
+.cars {
+  grid-area: cars;
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.quotes {
+  grid-area: quotes;
+  h2 {
+    color: $purple;
+    margin-bottom: 2rem;
+  }
+}
+.message {
+  font-size: .9rem;
+  color: rgba($gray-dark, .5);
+  margin-bottom: 2rem;
+}

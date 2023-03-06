@@ -1,0 +1,45 @@
+@import './colors';
+
+.input-container {
+  border: 2px solid rgba($gray-dark, .2);
+  margin-bottom: 2rem;
+  position: relative;
+  &.error {
+    border-color: red;
+  }
+  &:hover {
+    border-color: $blue;
+    & label {
+      color: $blue
+    }
+  }
+  input[type="text"], input[type="email"], select {
+    border: 0;
+    padding: .8rem;
+    display: inline-block;
+    width: 100%;
+  }
+  label {
+    position: absolute;
+    top: -7px;
+    left: 25px;
+    font-size: .8rem;
+    background-color: $white;
+    padding: 0 2px;
+  }
+}
+
+/*buttons*/
+.btn {
+  border-radius: 3px;
+  padding: .5rem 1rem;
+  border: 1px solid rgba($gray-dark, .2);
+  cursor: pointer;
+  &.disabled {
+    cursor: not-allowed;
+  }
+  &.blue {
+    background-color: $blue;
+    color: $white;
+  }
+}
